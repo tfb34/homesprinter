@@ -1,2 +1,23 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+
+<% provide(:title, 'Sign up') %>
+
+<div class="signup-container">
+	<h1 style="margin-top:0;">Sign Up</h1>
+	<%= form_for @user, :html => {id: 'signup-form'} do |f| %>
+
+	<%if @user.errors.any?%>
+		<ul>
+		<% @user.errors.full_messages.each do |msg|%>
+			<li><%= msg %></li>
+		<%end%>
+		</ul>
+	<%end%>
+
+		<%= f.email_field :email , required: true, placeholder: "Enter email address"%>
+		<%= f.password_field :password, required: true, placeholder: "Password", minlength: "8"%>
+		<%= f.password_field :password_confirmation, required: true, placeholder: "Password Confirmation", minlength: "8"%>
+
+		<%=f.submit "Create my account", id: "submit-btn"%>
+	<%end%>
+</div>
+

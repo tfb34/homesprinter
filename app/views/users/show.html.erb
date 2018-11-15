@@ -1,0 +1,26 @@
+<%provide(:title, 'Edit profile')%>
+<div class="myContainer bgColor">
+	<div class="navbar">
+		<%= image_tag 'logo.svg', :class => "logo"%>
+		<div id="menu-btn" onclick="">
+			<span></span>
+			<span style="margin-top:7px;margin-bottom:7px"></span>
+			<span></span>
+		</div>
+	</div>
+
+	<section id="edit-profile">
+		<h1>Edit Profile</h1>
+		<p class="subheader"><%= @user.created_at.strftime("Joined in %A %d, %Y")%></p>
+		<span class="line"></span>
+		<!--form goes here-->
+		<div class="picture">
+			<div>
+			<%= image_tag 'default_user.svg'%>
+			<a href="#">Change Picture</a>
+			</div>
+		</div>
+		<%= @user.email%>
+	</section>
+</div>
+
