@@ -362,3 +362,108 @@ template {
 [hidden] {
   display: none;
 }
+:root{
+  --main-color:rgba(38,199,132,1);
+}
+body{
+  font-family: 'Open Sans', sans-serif;
+}
+#bg{
+  position: absolute;
+  top:0;
+  z-index:-1;
+  width:100%;
+  height:100vh;
+  background-image: url(<%= asset_path 'homepage_bg.jpg'%>);
+  background-size: cover;
+  background-position: center;
+}
+.myContainer{
+  position: relative;
+}
+.logo{
+  position: absolute;
+  height:36px;
+  width:72px;
+  top:0;
+  left:1em;
+  bottom:0;
+  margin:auto;
+}
+.navbar{
+  position: relative;
+  height:60px;
+  width:100%;
+  background-color: var(--main-color);
+}
+#menu-btn{
+  position: absolute;
+  height:26px;
+  width:29px;
+  /*background-color:white;*/
+  top:0;
+  right:1em;
+  bottom:0;
+  margin:auto;
+}
+#menu-btn span{
+  height:4px;
+  width:100%;
+  background-color:white;
+  display: block;
+  border-radius:2px;
+}
+#welcome-content{
+  position: relative;
+  margin-top:25vh;
+}
+#welcome-content h1{
+  color:white;
+  text-align: center;
+}
+#welcome-content > form >input[name]{
+  height:50px;
+  width: 100%;
+  box-sizing: border-box;
+  padding-left: 1em;
+  border:none;
+  border-radius: 2px;
+}
+#welcome-content > form{
+  position: relative;
+  width:90%;
+  margin: 0 auto;
+}
+#welcome-content > form > #search-icon{
+  position: absolute;
+  height:16px;
+  width:16px;
+  border-radius:2px;
+  background-color: var(--main-color);
+  padding:0.5em;
+  top:0;
+  right:0.5em;
+  bottom:0;
+  margin:auto;
+}
+#search-menu{
+  width:70%;
+  margin:0 auto;
+  color:white;
+  background-color: rgba(0,0,0,0.8);
+}
+#search-menu span{
+  display: inline-block;
+  width:32%;
+  padding:0.5em 0;
+  text-align: center;
+}
+#search-menu .current{
+  background-color: var(--main-color);
+}
+#search-menu span:first-child{
+  border-top-left-radius: 2px;
+}
+#search-menu span:last-child{
+  border-top-right-radius: 2px;
+}

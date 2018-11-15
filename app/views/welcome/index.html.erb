@@ -1,4 +1,23 @@
-<h2>Hello World</h2>
-<p>
-	The Time is now: <%= Time.now%>
-</p>
+<div id="bg"></div>
+<div class="myContainer">
+	<div class="navbar">
+		<%= image_tag 'logo.svg', :class => "logo"%>
+		<div id="menu-btn" onclick="">
+			<span></span>
+			<span style="margin-top:7px;margin-bottom:7px"></span>
+			<span></span>
+		</div>
+	</div>
+	<div id="welcome-content">
+		<h1>Make finding your home easy.</h1>
+		<div id="search-menu">
+			<span class="current">Buy</span>
+			<span>Rent</span>
+			<span>Sold</span>
+		</div>
+		<form>
+			<input type="text" name="" placeholder="Address, Neighborhood, City, ZIP">
+			<%= image_tag 'search-icon.svg', :id => "search-icon"%>
+		</form>
+	</div>
+</div>
