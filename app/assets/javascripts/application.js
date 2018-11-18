@@ -14,3 +14,15 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+
+function toggleMenu(){
+	let menu = document.getElementById('mobile-menu');
+	let menuBtn = document.getElementById('menu-btn');
+	console.log(menu);
+	console.log(menuBtn);
+	menuBtn.classList.toggle('change');
+	menu.classList.toggle('show');
+
+}
+

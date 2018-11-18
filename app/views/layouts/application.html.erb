@@ -12,8 +12,10 @@
   </head>
 
   <body>
+    <%= render 'shared/navbar'%>
+    <%= render 'shared/mobile_menu'%>
     <%= yield %>
-    <%= debug(params) if Rails.env.development?%><!--This line restricts the debug information to the development environment only. Otherwise, users will see unsightly error messages in the deployed application.-->
-    
+ <!--    <%= debug(params) if Rails.env.development?%> --><!--This line restricts the debug information to the development environment only. Otherwise, users will see unsightly error messages in the deployed application.-->
+
   </body>
 </html>
