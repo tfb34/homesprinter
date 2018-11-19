@@ -1,13 +1,21 @@
 <div id="mobile-menu" class="">
 	<div style="text-align: center;margin-top:0.8em">
 
-	<%= link_to root_url do%>
-		<%=image_tag 'logo.svg', :class =>"logo"%>
+		<%= link_to root_url do%>
+			<%=image_tag 'logo.svg', :class =>"logo"%>
+		<%end%>
+		<%if current_user%>
+			<div id="user-info">
+				<%=link_to current_user.email, current_user%>
+			</div>
+		<%end%>
+	</div>
+	<%if(current_user)%>
+		<%=button_to 'Logout', logout_url, method: :delete%>
+	<%else%>
+		<%=button_to 'Sign up/Sign in', signup_path, method: :get%>
 	<%end%>
 
-	</div>
 
-	<button>
-		<%=link_to 'Sign up/Sign in', signup_url%>
-	</button>
 </div>
+

@@ -1,0 +1,19 @@
+
+<% provide(:title, 'Login') %>
+
+<div class="signup-container">
+	<h1 style="margin-top:0;">Login</h1>
+	<%= form_for :session, url: login_path, :html => {id: 'signup-form'} do |f| %>
+
+	<% flash.each do |key, value|%>
+		<p><%=value%></p>
+	<%end%>
+
+		<%= f.email_field :email , required: true, placeholder: "Enter email address"%>
+		<%= f.password_field :password, required: true, placeholder: "Password", minlength: "8"%>
+
+		<%=f.submit "Login", id: "submit-btn"%>
+	<%end%>
+	<p>New user? <%= link_to 'Sign up now!', signup_path%></p>
+</div>
+
