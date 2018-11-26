@@ -12,6 +12,10 @@
 		<%= f.email_field :email , required: true, placeholder: "Enter email address"%>
 		<%= f.password_field :password, required: true, placeholder: "Password", minlength: "8"%>
 
+		<%= f.label :remember_me, class: "checkbox" do%>
+			<%= f.check_box :remember_me%>
+			<span>Remember me</span>
+		<%end%>
 		<%=f.submit "Login", id: "submit-btn"%>
 	<%end%>
 	<p>New user? <%= link_to 'Sign up now!', signup_path%></p>
