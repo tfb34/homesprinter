@@ -1,0 +1,17 @@
+<% provide(:title, "Edit user")%>
+
+<div class="myContainer bgColor">
+	<section id="edit-profile">
+		<h1>Edit Profile</h1>
+		<p class="subheader"><%= @user.created_at.strftime("Joined in %A %d, %Y")%></p>
+		<span class="line"></span>
+		<!--form goes here-->
+		<div class="picture">
+			<div>
+			<%= image_tag 'default_user.svg'%>
+			<a href="#">Change Picture</a>
+			</div>
+		</div>
+		<%= render 'profile_form'%>
+	</section>
+</div>

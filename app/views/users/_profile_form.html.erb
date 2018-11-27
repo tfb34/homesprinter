@@ -1,0 +1,33 @@
+<div class="signup-container form">
+<%= form_for @user, :html => {id: 'signup-form'} do |f| %>
+
+	<%if @user.errors.any?%>
+		<ul>
+		<% @user.errors.full_messages.each do |msg|%>
+			<li><%= msg %></li>
+		<%end%>
+		</ul>
+	<%end%>
+
+	<%= f.label :email%>
+	<%= f.email_field :email , required: true, placeholder: @user.email%>
+
+	<%= f.label :name%>
+	<%= f.text_field :name , required: false, placeholder: "Full name"%>
+	
+	<%= f.label :location%>
+	<%= f.text_field :location, required: false, placeholder: request.location.city%>
+
+	<%= f.label :password%>
+	<%= f.password_field :password, required: true, placeholder: "Password", minlength: "8"%>
+
+	<%= f.label :password_confirmation%>
+	<%= f.password_field :password_confirmation, required: true, placeholder: "Password Confirmation", minlength: "8"%>
+
+	<%=f.submit "Update profile", id: "submit-btn"%>
+<%end%>
+
+</div>
+
+
+
