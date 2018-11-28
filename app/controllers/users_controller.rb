@@ -18,7 +18,7 @@ class UsersController < ApplicationController
   	if @user.save
       UserMailer.greeting(@user).deliver_now
       log_in(@user)
-      flash[:success] = "Welcome to HomeSprinter, "+@user.email+"!"
+      flash[:success] = "Welcome "+@user.email+"!"
   		redirect_to root_url #used to be @user
   	else
   		render 'new'
