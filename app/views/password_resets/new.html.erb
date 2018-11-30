@@ -1,0 +1,11 @@
+<% provide(:title, 'Forgot Password') %>
+
+<div class="signup-container">
+	<h1 style="margin-top:0;">Forgot Password</h1>
+	<%= form_for :password, url: password_resets_path, :html => {id: 'signup-form'} do |f| %>
+
+		<%= f.email_field :email , required: true, placeholder: "Enter email address"%>
+	
+		<%=f.submit "Submit", id: "submit-btn", class: "blue"%>
+	<%end%>
+</div>

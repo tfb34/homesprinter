@@ -3,16 +3,19 @@
 
 <div class="signup-container">
 	<h1 style="margin-top:0;">Login</h1>
-	<%= form_for :session, url: login_path, :html => {id: 'signup-form'} do |f| %>
+	<%= form_for :session, url: login_path, :html => {id: 'signup-form', style: "text-align:left;"} do |f| %>
 
-		<%= f.email_field :email , required: true, placeholder: "Enter email address"%>
+		<%=f.label :email , class: "label"%><br><br>
+		<%= f.email_field :email , required: true, placeholder: "Enter email address"%><br><br>
+		<%=f.label :password, class: "label"%>
+		<%= link_to "(forgot password)", new_password_reset_path, style: "text"%><br><br>
 		<%= f.password_field :password, required: true, placeholder: "Password", minlength: "8"%>
-
+		
 		<%= f.label :remember_me, class: "checkbox" do%>
 			<%= f.check_box :remember_me%>
 			<span>Remember me</span>
 		<%end%>
-		<%=f.submit "Login", id: "submit-btn"%>
+		<%=f.submit "Login", id: "submit-btn", class: "blue"%>
 	<%end%>
 	<p>New user? <%= link_to 'Sign up now!', signup_path%></p>
 </div>
