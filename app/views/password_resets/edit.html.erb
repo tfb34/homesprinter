@@ -1,4 +1,5 @@
 <div class="signup-container form">
+	<h1 style="margin-top:0;">Forgot Password</h1>
 <%= form_for @user, url: password_reset_path(params[:id]), :html => {id: 'signup-form'} do |f| %>
 	
 	<%if @user.errors.any?%>
