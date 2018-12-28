@@ -6,6 +6,10 @@ ruby '2.4.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.0'
+# Webpack provides modern JS tooling for Rails
+gem 'webpacker'
+#Use react for front-end
+gem 'react-rails'
 #Use to find user's location
 gem 'geocoder'
 # Use this hash_function to enable has_secure_password
