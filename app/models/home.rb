@@ -6,6 +6,5 @@ class Home < ApplicationRecord
 	validates :price, presence:true
 	validates :bedrooms, presence:true
 	validates :bathrooms, presence:true
-
 	
 end

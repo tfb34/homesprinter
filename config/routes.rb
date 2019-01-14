@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
  
+  post 'searchResults', to: 'search_results#create'
+  get 'homes', to: 'homes#index'
+
   #get 'password_resets/new'
   #get 'password_resets/edit'
   get 'sessions/new'

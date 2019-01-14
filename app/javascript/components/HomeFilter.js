@@ -60,6 +60,7 @@ class FilterableHomeTable extends React.Component{
 		this.updateMaxPriceChange = this.updateMaxPriceChange.bind(this);
 		this.handleSortChange = this.handleSortChange.bind(this);
 		this.handleFilterTextChange = this.handleFilterTextChange.bind(this);
+		this.fetchFirst = this.fetchFirst.bind(this);
 		this.state = {
 			filterText: 'Neighborhood',
 			isAnyPrice: true,
@@ -74,16 +75,71 @@ class FilterableHomeTable extends React.Component{
 		};
 	}
 
+
+	fetchFirst(){
+	/*url = "https://homesprinter.herokuapp.com/homes"*/
+	   /* url = "http://localhost:3000/homes"*/
+	   console.log("inside fetchFirst");
+		/*var that = this;*/
+		var form = new FormData(document.getElementById('filterForm'));
+		/*form.set('bedrooms', this.state.minBeds);*/
+		
+		/*fetch("http://localhost:3000/homes?bedrooms=3")*/
+/*
+		fetch("http://localhost:3000/searchResults",{
+			method: 'post',
+			body:form,
+			headers: {
+				'Accept': 'text/javascript, application/javascript',
+                'Content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
+                'remote': true
+			}
+		})*/
+		/*var xhr = new XMLHttpRequest();
+		xhr.onreadystatechange = function(){
+			//Only run if request is complete
+			if(xhr.readyState !==4) return;
+			//Process our return data
+			if(xhr.status >= 200 && xhr.status < 300){
+				// what to do when request is successful
+				console.log(xhr.responseText);
+			}
+		}
+
+		// Create and send a request 
+		xhr.open('POST', 'http://localhost:3000/searchResults');
+		xhr.send();*/
+		
+		var urlString = [`bedrooms=${this.state.minBeds}`,
+					 	 `filterText=${this.state.filterText}`,
+					 	 `city=${this.state.filterText}`,
+					 	 `listingType=${this.state.listingType}`,
+					 	 `minPrice=${this.state.minPrice}`,
+					 	 `maxPrice=${this.state.maxPrice}`];
+
+		Rails.ajax({
+			headers: {'Accept': 'text/javascript, application/javascript'},
+			type: "POST",
+			url:"/searchResults.js?"+urlString.join('&'),
+			data: form,
+			success: function(response){
+				console.log(response);
+			}
+		})
+	}
+
 	handleListingTypeChange(newType){
 		this.setState({
 			listingType:newType
 		});
+		this.fetchFirst();
 	}
 
 	handleBedroomChange(newMinBeds){
 		this.setState({
 			minBeds: newMinBeds
 		})
+		this.fetchFirst();
 	}
 
 	handlePriceChange(type, newPrice){
@@ -148,6 +204,9 @@ class FilterableHomeTable extends React.Component{
 					filterText = {this.filterText}
 					onTextChange = {this.handleFilterTextChange}
 				/>
+				<a onClick={(e) => this.fetchFirst(e)}>
+					"Click Me"
+				</a>
 			</div>
 		);
 	}

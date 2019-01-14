@@ -1,0 +1,15 @@
+<!-- homes/index.html.erb -->
+
+<div>
+	<!--menu-->
+	<%= react_component('HomeFilter') %>
+	<!--homes-->
+	<!--render partial: 'home_grid', locals: {items: @items}%>-->
+	<%=form_tag({:controller=> "search_results", :action => "create"}, :remote=>true, :id => "filterForm") do%>
+		<%=submit_tag 'save' ,:class=>"hide"%>
+	<%end%>
+
+	<div id="searchResults">
+		
+	</div>
+</div>
