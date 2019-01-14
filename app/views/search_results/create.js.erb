@@ -1,0 +1,5 @@
+
+
+
+window.document.getElementById('searchResults').innerHTML ="<%= escape_javascript(render(:partial => 'homes/home_grid', :locals => {:homes => @homes}))%>"
+
