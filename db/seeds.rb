@@ -8,16 +8,16 @@
 
 # the heights
 
-theHeights = [{street_address: '258 Webster Ave', city: 'Jersey City', state:'NJ', zipcode:'07307',price:499000, neighborhood:'The Heights', bedrooms:3,bathrooms:3, listing_type:'For Sale'},
-			  {street_address: '57 Saint Pauls Ave', city: 'Jersey City', state:'NJ', zipcode:'07307',price:329000, neighborhood:'The Heights', bedrooms:2,bathrooms:2, listing_type:'For Sale'},
-			  {street_address: '317 New York Ave', city: 'Jersey City', state:'NJ', zipcode:'07307',price:340000, neighborhood:'The Heights', bedrooms:2,bathrooms:2, listing_type:'For Sale'},
-			  {street_address: '72 Jefferson Ave', city: 'Jersey City', state:'NJ', zipcode:'07307',price:152900, neighborhood:'The Heights', bedrooms:0,bathrooms:1, listing_type:'For Sale'},
-			  {street_address: '28 Beach St', city: 'Jersey City', state:'NJ', zipcode:'07307',price:440000, neighborhood:'The Heights', bedrooms:2,bathrooms:1, listing_type:'For Sale'},
-			  {street_address: '390 Ogden Ave', city: 'Jersey City', state:'NJ', zipcode:'07307',price:2400, neighborhood:'The Heights', bedrooms:4,bathrooms:2, listing_type:'For Rent'},
-			  {street_address: '967 Summit Ave', city: 'Jersey City', state:'NJ', zipcode:'07307',price:1450, neighborhood:'The Heights', bedrooms:1,bathrooms:1, listing_type:'For Rent'},
-			  {street_address: '345 Palisade Ave', city: 'Jersey City', state:'NJ', zipcode:'07307',price:1850, neighborhood:'The Heights', bedrooms:2,bathrooms:1, listing_type:'For Rent'},
-			  {street_address: '880 Summit Ave', city: 'Jersey City', state:'NJ', zipcode:'07307',price:2400, neighborhood:'The Heights', bedrooms:1,bathrooms:2, listing_type:'For Rent'},
-			  {street_address: '77 Sherman Pl', city: 'Jersey City', state:'NJ', zipcode:'07307',price:1900, neighborhood:'The Heights', bedrooms:2,bathrooms:1, listing_type:'For Rent'}]
+theHeights = [{street_address: '258 Webster Ave', city: 'Jersey City', state:'NJ', zipcode:'07307',price:499000, neighborhood:'The Heights', bedrooms:3,bathrooms:3, listing_type:'For Sale', pic_url:'https://raw.githubusercontent.com/tfb34/homesprinter/master/app/assets/images/258websterave.jpg'},
+			  {street_address: '57 Saint Pauls Ave', city: 'Jersey City', state:'NJ', zipcode:'07307',price:329000, neighborhood:'The Heights', bedrooms:2,bathrooms:2, listing_type:'For Sale', pic_url: 'https://raw.githubusercontent.com/tfb34/homesprinter/master/app/assets/images/57SaintPaulsAve.jpg'},
+			  {street_address: '317 New York Ave', city: 'Jersey City', state:'NJ', zipcode:'07307',price:340000, neighborhood:'The Heights', bedrooms:2,bathrooms:2, listing_type:'For Sale', pic_url: 'https://raw.githubusercontent.com/tfb34/homesprinter/master/app/assets/images/317NewYorkAve.jpg'},
+			  {street_address: '72 Jefferson Ave', city: 'Jersey City', state:'NJ', zipcode:'07307',price:152900, neighborhood:'The Heights', bedrooms:0,bathrooms:1, listing_type:'For Sale', pic_url:'https://raw.githubusercontent.com/tfb34/homesprinter/master/app/assets/images/72JeffersonAve.jpg'},
+			  {street_address: '28 Beach St', city: 'Jersey City', state:'NJ', zipcode:'07307',price:440000, neighborhood:'The Heights', bedrooms:2,bathrooms:1, listing_type:'For Sale', pic_url: 'https://raw.githubusercontent.com/tfb34/homesprinter/master/app/assets/images/28BeachSt.jpg'},
+			  {street_address: '390 Ogden Ave', city: 'Jersey City', state:'NJ', zipcode:'07307',price:2400, neighborhood:'The Heights', bedrooms:4,bathrooms:2, listing_type:'For Rent', pic_url: 'https://raw.githubusercontent.com/tfb34/homesprinter/master/app/assets/images/390OgdenAve.jpg'},
+			  {street_address: '967 Summit Ave', city: 'Jersey City', state:'NJ', zipcode:'07307',price:1450, neighborhood:'The Heights', bedrooms:1,bathrooms:1, listing_type:'For Rent', pic_url: 'https://raw.githubusercontent.com/tfb34/homesprinter/master/app/assets/images/967SummitAve.jpg'},
+			  {street_address: '345 Palisade Ave', city: 'Jersey City', state:'NJ', zipcode:'07307',price:1850, neighborhood:'The Heights', bedrooms:2,bathrooms:1, listing_type:'For Rent', pic_url: 'https://raw.githubusercontent.com/tfb34/homesprinter/master/app/assets/images/345PalisadeAve.jpg'},
+			  {street_address: '880 Summit Ave', city: 'Jersey City', state:'NJ', zipcode:'07307',price:2400, neighborhood:'The Heights', bedrooms:1,bathrooms:2, listing_type:'For Rent', pic_url: 'https://raw.githubusercontent.com/tfb34/homesprinter/master/app/assets/images/880SummitAve.jpg'},
+			  {street_address: '77 Sherman Pl', city: 'Jersey City', state:'NJ', zipcode:'07307',price:1900, neighborhood:'The Heights', bedrooms:2,bathrooms:1, listing_type:'For Rent',pic_url: 'https://raw.githubusercontent.com/tfb34/homesprinter/master/app/assets/images/77ShermanPl.jpg'}]
 
 greenville = [{street_address: '106 Stegman St', city: 'Jersey City', state:'NJ', zipcode:'07305',price:299000, neighborhood:'Greenville', bedrooms:3,bathrooms:3, listing_type:'For Sale'},
 			  {street_address: '119 Armstrong Ave', city: 'Jersey City', state:'NJ', zipcode:'07305',price:549000, neighborhood:'Greenville', bedrooms:8,bathrooms:5, listing_type:'For Sale'},
