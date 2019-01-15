@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_28_224416) do
+ActiveRecord::Schema.define(version: 2019_01_15_015547) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 2018_12_28_224416) do
     t.datetime "updated_at", null: false
     t.string "neighborhood"
     t.string "listing_type"
+    t.string "pic_url"
     t.index ["price"], name: "index_homes_on_price"
     t.index ["street_address"], name: "index_homes_on_street_address", unique: true
   end
