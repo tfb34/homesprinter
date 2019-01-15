@@ -6,7 +6,7 @@
 	<p id="search-result-count">Search Results &mdash; <%= @homes.count%></p>
 	<% @homes.each do |x|%>
 		<div class="search-result-box">
-			<div class="pic">
+			<div class="pic" style="background-image: url(<%=x.pic_url%>);background-size: cover; background-position: center;">
 			</div>
 			<div class="content-wrapper">
 				<p class="price">$ <%=x.price.to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1,').reverse%></p>

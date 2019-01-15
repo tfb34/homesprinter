@@ -39,8 +39,11 @@ class SearchResultsController < ApplicationController
   	#if(homes.count > 0)
   		#homes.where(listing_type: getListingType()).where('price BETWEEN ? AND ?', getMinPrice(), getMaxPrice()).where('bedrooms >= ?', params[:bedrooms])
   	#end
-
-  	return homes.where(listing_type: getListingType()).where('price BETWEEN ? AND ?', getMinPrice(), getMaxPrice()).where('bedrooms >= ?', params[:bedrooms])
+  	if homes 
+  		homes = homes.where(listing_type: getListingType()).where('price BETWEEN ? AND ?', getMinPrice(), getMaxPrice()).where('bedrooms >= ?', params[:bedrooms])
+  	end
+  	
+  	return homes
   end
 
 

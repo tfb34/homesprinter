@@ -217,6 +217,7 @@ class FilterableHomeTable extends React.Component{
 	 
 }
 /*<input value={this.props.filterText} type="text" name="filterText" onChange={this.props.onTextChange}>*/
+
 class SearchInput extends React.Component{
 	constructor(props){
 		super(props);
@@ -224,7 +225,7 @@ class SearchInput extends React.Component{
 
 	render(){
 		return(
-			<input value={this.props.filterText} type="text" placeholder="Enter something" name="filterText" onChange={this.props.onTextChange}/>
+			<input value={this.props.filterText} type="text" placeholder="Neighborhood, City, State, Zip Code" id="filterTextBox" name="filterText" onChange={this.props.onTextChange}/>
 		)
 	}
 }

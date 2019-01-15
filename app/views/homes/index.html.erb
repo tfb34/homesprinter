@@ -11,7 +11,18 @@
 
 	<div id="searchResults">
 		
-			<%= render 'home_grid'%>
+		<%= render 'home_grid'%>
 		
 	</div>
 </div>
+<script type="text/javascript">
+	document.onreadystatechange = function(){
+		if(document.readyState === "complete"){
+			var x = <%=@filterText.to_json.html_safe%>
+			if(x){
+				document.getElementById('filterTextBox').value = x;
+			}
+
+		}
+	}
+</script>
