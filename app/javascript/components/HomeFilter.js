@@ -128,18 +128,22 @@ class FilterableHomeTable extends React.Component{
 		})
 	}
 
+	componentDidUpdate(){
+		this.fetchFirst();
+	}
+
 	handleListingTypeChange(newType){
 		this.setState({
 			listingType:newType
 		});
-		this.fetchFirst();
+		/*this.fetchFirst();*/
 	}
 
 	handleBedroomChange(newMinBeds){
 		this.setState({
 			minBeds: newMinBeds
 		})
-		this.fetchFirst();
+		/*this.fetchFirst();*/
 	}
 
 	handlePriceChange(type, newPrice){

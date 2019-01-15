@@ -3,14 +3,17 @@
 	<div id="welcome-content">
 		<h1>Make finding your home easy.</h1>
 		<div id="search-menu">
-			<span class="current">Buy</span>
-			<span>Rent</span>
-			<span>Sold</span>
+			<span onclick="updateForm(this)" class="current">Buy</span>
+			<span onclick="updateForm(this)">Rent</span>
+			<span onclick="updateForm(this)">Sold</span>
 		</div>
-		<form>
-			<input type="text" name="" placeholder="Address, Neighborhood, City, ZIP">
-			<%= image_tag 'search-icon.svg', :id => "search-icon"%>
-		</form>
+		<%=form_tag(homes_path, method: "get") do%>
+
+			<%=text_field_tag 'filterText',nil,placeholder:'Address, Neighborhood, City, ZIP...', required: true%>
+			<!-- <input type="text" name="" placeholder="Address, Neighborhood, City, ZIP"> -->
+			<%=hidden_field_tag 'listingType', 'buy'%>
+			<%=image_submit_tag("search-icon.svg", id:'search-icon')%>
+		<%end%>
 	</div>
 </div>
 

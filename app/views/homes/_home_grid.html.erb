@@ -1,15 +1,19 @@
 <div class="home-grid-container">
-	<p id="search-result-count">Search Results &mdash; <%=@homes.count%></p>
+	<%if @homes.nil?%>
+		<p id="search-result-count">Search Results &mdash; 0</p>
+	<%else%>
+
+	<p id="search-result-count">Search Results &mdash; <%= @homes.count%></p>
 	<% @homes.each do |x|%>
 		<div class="search-result-box">
 			<div class="pic">
 			</div>
 			<div class="content-wrapper">
-				<p class="price">$ <%=x.price.to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1,').reverse
-%></p>
+				<p class="price">$ <%=x.price.to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1,').reverse%></p>
 				<p class="specs"><%=x.bedrooms%> bd, <%=x.bathrooms%> ba</p>
 				<p class="address"><%=x.street_address%><br><%=x.city%>, <%=x.state%></p>
 			</div>
 		</div>
+	<%end%>
 	<%end%>
 </div>

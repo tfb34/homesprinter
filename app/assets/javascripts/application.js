@@ -23,6 +23,16 @@ function toggleMenu(){
 	console.log(menuBtn);
 	menuBtn.classList.toggle('change');
 	menu.classList.toggle('show');
-
 }
+
+function updateForm(x){
+	/*change style*/
+	let prev = document.getElementById("search-menu").getElementsByClassName("current")[0];
+	prev.classList.toggle("current");
+	x.classList.toggle("current");
+	/*change form*/
+	document.getElementById("listingType").value = x.innerHTML;
+}
+
+
 
