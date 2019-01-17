@@ -33,12 +33,12 @@ ActiveRecord::Schema.define(version: 2019_01_17_164058) do
   end
 
   create_table "likes", force: :cascade do |t|
-    t.integer "user_id"
+    t.integer "admirer_id"
     t.integer "home_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["admirer_id"], name: "index_likes_on_admirer_id", unique: true
     t.index ["home_id"], name: "index_likes_on_home_id", unique: true
-    t.index ["user_id"], name: "index_likes_on_user_id", unique: true
   end
 
   create_table "users", force: :cascade do |t|
