@@ -1,5 +1,8 @@
 class User < ApplicationRecord
 
+	has_many :likes, :foreign_key => :admirer_id
+	has_many :favorite_homes, through: :likes, :source => :home
+
 	attr_accessor :remember_token, :reset_token
 	attr_accessor :location
 	before_save {email.downcase!}

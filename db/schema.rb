@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_15_015547) do
+ActiveRecord::Schema.define(version: 2019_01_17_164058) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,15 @@ ActiveRecord::Schema.define(version: 2019_01_15_015547) do
     t.string "pic_url"
     t.index ["price"], name: "index_homes_on_price"
     t.index ["street_address"], name: "index_homes_on_street_address", unique: true
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "home_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["home_id"], name: "index_likes_on_home_id", unique: true
+    t.index ["user_id"], name: "index_likes_on_user_id", unique: true
   end
 
   create_table "users", force: :cascade do |t|
