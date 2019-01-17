@@ -61,6 +61,8 @@ class FilterableHomeTable extends React.Component{
 		this.handleSortChange = this.handleSortChange.bind(this);
 		this.handleFilterTextChange = this.handleFilterTextChange.bind(this);
 		this.fetchFirst = this.fetchFirst.bind(this);
+		this.handleFilterButton = this.handleFilterButton.bind(this);
+
 		this.state = {
 			filterText: 'Neighborhood',
 			isAnyPrice: true,
@@ -71,44 +73,25 @@ class FilterableHomeTable extends React.Component{
 			isAllHomeTypes: true,
 			homeType: [],
 			listingType: 'buy', // stays
-			sortType: 'Featured'
+			sortType: 'Featured',
+			isFiltersOn: false
 		};
 	}
 
 
-	fetchFirst(){
-	/*url = "https://homesprinter.herokuapp.com/homes"*/
-	   /* url = "http://localhost:3000/homes"*/
-	   console.log("inside fetchFirst");
-		/*var that = this;*/
-		var form = new FormData(document.getElementById('filterForm'));
-		/*form.set('bedrooms', this.state.minBeds);*/
-		
-		/*fetch("http://localhost:3000/homes?bedrooms=3")*/
-/*
-		fetch("http://localhost:3000/searchResults",{
-			method: 'post',
-			body:form,
-			headers: {
-				'Accept': 'text/javascript, application/javascript',
-                'Content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
-                'remote': true
-			}
-		})*/
-		/*var xhr = new XMLHttpRequest();
-		xhr.onreadystatechange = function(){
-			//Only run if request is complete
-			if(xhr.readyState !==4) return;
-			//Process our return data
-			if(xhr.status >= 200 && xhr.status < 300){
-				// what to do when request is successful
-				console.log(xhr.responseText);
-			}
-		}
+	handleFilterButton(){
+		var x = !this.state.isFiltersOn;
+		this.setState({
+			isFiltersOn: x
+		});
+	}
 
-		// Create and send a request 
-		xhr.open('POST', 'http://localhost:3000/searchResults');
-		xhr.send();*/
+	fetchFirst(){
+	
+	   console.log("inside fetchFirst");
+		
+		var form = new FormData(document.getElementById('filterForm'));
+		
 		
 		var urlString = [`bedrooms=${this.state.minBeds}`,
 					 	 `filterText=${this.state.filterText}`,
@@ -174,7 +157,6 @@ class FilterableHomeTable extends React.Component{
 	}
 
 	render(){
-		//if change in state return something?
 	/*	return (
 			<div>
 				<SearchBar
@@ -188,29 +170,30 @@ class FilterableHomeTable extends React.Component{
 		);*/
 		return(
 			<div id="HomeFilterForm">
-				<ListingType 
-					type={this.state.listingType}
-					onListingTypeChange={this.handleListingTypeChange}/>
-				<NumBedroomPreference 
-					minBeds = {this.state.minBeds}
-					onBedroomChange = {this.handleBedroomChange}  
-				/>
-				<PricePreference
-					minPrice = {this.state.minPrice}
-					maxPrice = {this.state.maxPrice}
-					onPriceChange = {this.handlePriceChange}
+				<SearchInput
+					filterText = {this.filterText}
+					onTextChange = {this.handleFilterTextChange}
 				/>
 				<SortPreference
 					sortType = {this.state.sortType}
 					onSortChange = {this.handleSortChange}
 				/>
-				<SearchInput
-					filterText = {this.filterText}
-					onTextChange = {this.handleFilterTextChange}
-				/>
-				<a onClick={(e) => this.fetchFirst(e)}>
-					"Click Me"
-				</a>
+				<a onClick={(e) => this.handleFilterButton(e)} id="filtersButton">Filters</a>
+				<div id="filters-container" className={this.state.isFiltersOn? 'show':'hide'}>
+					<ListingType 
+						type={this.state.listingType}
+						onListingTypeChange={this.handleListingTypeChange}
+					/>
+					<NumBedroomPreference 
+						minBeds = {this.state.minBeds}
+						onBedroomChange = {this.handleBedroomChange}  
+					/>
+					<PricePreference
+						minPrice = {this.state.minPrice}
+						maxPrice = {this.state.maxPrice}
+						onPriceChange = {this.handlePriceChange}
+					/>
+				</div>
 			</div>
 		);
 	}
