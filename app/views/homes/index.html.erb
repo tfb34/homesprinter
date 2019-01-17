@@ -20,7 +20,15 @@
 		if(document.readyState === "complete"){
 			var x = <%=@filterText.to_json.html_safe%>
 			if(x){
-				document.getElementById('filterTextBox').value = x;
+				var input = document.getElementById('filterTextBox');
+
+				var nativeInputValueSetter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, "value").set;
+
+				nativeInputValueSetter.call(input, x);
+
+				var ev2 = new Event('input', { bubbles: true});
+				input.dispatchEvent(ev2);
+				
 			}
 
 		}

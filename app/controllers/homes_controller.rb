@@ -20,6 +20,7 @@ class HomesController < ApplicationController
         if @homes
             @homes = @homes.where(listing_type: getListingType())
         end
+        
   		@filterText = params[:filterText]
 	end
 

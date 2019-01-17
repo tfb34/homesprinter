@@ -5,7 +5,7 @@ class SearchResultsController < ApplicationController
   	#@homes = Home.where(neighborhood: params[:neighborhood]).or(Home.where(city: params[:city]))
   	#@homes = Home.all
   	#find location format
- 
+  	
   	@homes = getHomes()
   		
   	
