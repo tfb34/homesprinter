@@ -1,0 +1,2 @@
+
+window.document.getElementById(<%=@home.id%>).innerHTML ="<%= escape_javascript(render(:partial => 'destroy_form', :locals => {:like => @like, :home => @home}))%>"

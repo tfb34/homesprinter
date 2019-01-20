@@ -1,0 +1,2 @@
+
+window.document.getElementById(<%=@home.id%>).innerHTML ="<%= escape_javascript(render(:partial => 'create_form', :locals => {:home => @home}))%>"

@@ -728,9 +728,9 @@ select:focus{
   border-color:var(--main-color);
 }
 #bedroom-menu a{
-  border-top: 1px solid var(--border-color);
-  border-right: 1px solid var(--border-color);
-  border-bottom: 1px solid var(--border-color);
+  border-top: 1px solid lightgrey;
+  border-right: 1px solid lightgrey;
+  border-bottom: 1px solid lightgrey;
   padding:0.5em;
   text-decoration-line: none;
     display: inline-block;
@@ -739,7 +739,7 @@ select:focus{
     cursor:pointer;
 }
 
-#bedroom-menu a:hover{
+#bedroom-menu a:hover, #listingtype-menu a:hover{
   background-color: var(--btn-hover-color);
 }
 #bedroom-menu a:first-of-type{
@@ -812,6 +812,7 @@ select:focus{
   padding:0.5em 0;
   background-color: #f0eded;
   font-weight: bold;
+  cursor: pointer;
 }
 #sortOption{
   background-color: white;
@@ -846,6 +847,7 @@ select:focus{
   padding:1em 0;
   border:1px solid lightgrey;
   box-sizing: border-box;
+  cursor: pointer;
 }
 #listingtype-menu a:nth-child(even){
   border-left: 0;
@@ -859,4 +861,9 @@ select:focus{
 }
 .content-wrapper p{
   margin:0.4em 0;
+}
+.heart-btns{
+  position: absolute;
+  top: 1em;
+  right: 1em;
 }

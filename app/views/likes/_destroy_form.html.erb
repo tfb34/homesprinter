@@ -1,0 +1,5 @@
+<%=form_for(like, :html => {:method => :delete, remote: true}) do |f|%>
+	<!--give id of home liked-->
+	<%= f.hidden_field :home_id, :value => home.id%>
+	<%=image_submit_tag("heart-red.svg", id:'', value: "")%>
+<%end%>
