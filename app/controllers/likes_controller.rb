@@ -1,9 +1,10 @@
 class LikesController < ApplicationController
 
-	before_action :logged_in_user, only: [:create, :destroy]
+	before_action :logged_in_user, only: [:index, :create, :destroy]
 
 	def index
 		#need to be logged in
+		@homes = current_user.favorite_homes
 	end
 
 	def create

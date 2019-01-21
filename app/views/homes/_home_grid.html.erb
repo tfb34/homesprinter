@@ -3,28 +3,7 @@
 	<%if @homes.nil?%>
 		<p id="search-result-count">Search Results &mdash; 0</p>
 	<%else%>
-
-	<p id="search-result-count">Search Results &mdash; <%= @homes.count%></p>
-	<% @homes.each do |x|%>
-		<div class="search-result-box">
-			<div class="pic" style="background-image: url(<%=x.pic_url%>);background-size: cover; background-position: center;position: relative;">
-				<div id=<%=x.id%> class="heart-btns">
-
-					<% if logged_in? && current_user.favorite_homes.find_by(id: x.id)%>
-
-						<%= render :partial => 'likes/destroy_form', :locals => {:like => current_user.likes.find_by(home_id: x.id), :home => x} %>
-					<%else%>
-						<%= render :partial => 'likes/create_form', :locals => {:home => x} %>
-					<%end%>
-
-				</div>
-			</div>
-			<div class="content-wrapper">
-				<p class="price">$ <%=x.price.to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1,').reverse%></p>
-				<p class="specs"><%=x.bedrooms%> bd, <%=x.bathrooms%> ba</p>
-				<p class="address"><%=x.street_address%><br><%=x.city%>, <%=x.state%></p>
-			</div>
-		</div>
-	<%end%>
+		<p id="search-result-count">Search Results &mdash; <%= @homes.count%></p>
+		<%= render :partial => 'homes/home_list', :locals => {:homes => @homes} %>
 	<%end%>
 </div>

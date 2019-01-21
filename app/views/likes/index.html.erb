@@ -1,0 +1,14 @@
+<div id="saved-homes-menu">
+    <!-- <a href="javascript: getSavedHomes(this)" class="current">Saved Homes</a>
+    <a href="javascript: getRentalHomes(this)">Saved Rentals</a> -->
+    <span onclick="getSavedHomes(this)" class="current" id="saved-homes-option">Saved Homes</span>
+    <span onclick="getRentalHomes(this)" id="saved-rentals-option">Saved Rentals</span>
+</div>
+
+<div id="saved-homes-container">
+    <%= render :partial => "homes/home_list", :locals => {:homes => @homes.where(listing_type: "For Sale")}%>
+</div>
+<div id="saved-rentals-container" class="hide">
+    <%= render :partial => "homes/home_list", :locals => {:homes => @homes.where(listing_type: "For Rent")}%>
+</div>
+

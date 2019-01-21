@@ -34,5 +34,17 @@ function updateForm(x){
 	document.getElementById("listingType").value = x.innerHTML;
 }
 
+function getSavedHomes(x){
+	document.getElementById("saved-rentals-option").classList.remove("current");
+	x.classList.add("current");
+	document.getElementById("saved-homes-container").classList.remove("hide");
+	document.getElementById("saved-rentals-container").classList.add("hide");
+}
+function getRentalHomes(x){
+	document.getElementById("saved-homes-option").classList.remove("current");
+	x.classList.add("current");
+	document.getElementById("saved-homes-container").classList.add("hide");
+	document.getElementById("saved-rentals-container").classList.remove("hide");
+}
 
 
