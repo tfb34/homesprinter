@@ -1,5 +1,5 @@
 <%=form_for(Like.new, remote: true) do |f|%>
 	<!--give id of home liked-->
 	<%= f.hidden_field :home_id, :value => home.id%>
-	<%=image_submit_tag("heart.svg", id:'', value: "")%>
+	<%=image_submit_tag("heart-transparent.svg", id:'', value: "")%>
 <%end%>
