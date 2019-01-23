@@ -6,6 +6,7 @@
 		<%end%>
 		<%if current_user%>
 			<div id="user-info">
+				<%=gravatar_for current_user,size: 30%>
 				<%=link_to current_user.email, edit_user_path(current_user), id:""%>
 				<%=link_to "Saved Homes", likes_path%>
 			</div>
