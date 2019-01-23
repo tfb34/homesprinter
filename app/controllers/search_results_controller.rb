@@ -41,7 +41,8 @@ class SearchResultsController < ApplicationController
   	#end
   	if homes 
   		homes = homes.where(listing_type: getListingType()).where('price BETWEEN ? AND ?', getMinPrice(), getMaxPrice()).where('bedrooms >= ?', params[:bedrooms])
-  	end
+      homes = sort(homes);
+    end
   	
   	return homes
   end
@@ -77,4 +78,29 @@ class SearchResultsController < ApplicationController
 
   	return maxPrice
   end
+
+  def sort(homes)
+    
+    if homes.nil?
+      return homes
+    end
+
+    sortType = params[:sortType]
+
+    case sortType
+    when "priceAsc"
+      orderedList = homes.order(price: :asc)
+    when "priceDesc"
+      orderedList = homes.order(price: :desc)
+    when "bedrooms"
+      orderedList = homes.order(:bedrooms)
+    when "bathrooms"
+      orderedList = homes.order(:bathrooms)
+    else
+      orderedList = homes
+    end
+
+    return orderedList
+  end
+
 end

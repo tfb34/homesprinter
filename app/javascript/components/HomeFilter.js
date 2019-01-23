@@ -95,6 +95,7 @@ class FilterableHomeTable extends React.Component{
 		
 		var urlString = [`bedrooms=${this.state.minBeds}`,
 					 	 `filterText=${this.state.filterText}`,
+					 	 `sortType=${this.state.sortType}`,
 					 	 `city=${this.state.filterText}`,
 					 	 `listingType=${this.state.listingType}`,
 					 	 `minPrice=${this.state.minPrice}`,
@@ -223,7 +224,10 @@ class SortPreference extends React.Component{
 		return(
 			<select value={this.props.sortType} name="sort" id="sortOption" onChange={this.props.onSortChange}>
 				<option value="featured">Sort: Featured</option>
-				<option value="newest">Sort: Newest</option>
+				<option value="priceAsc">Sort: Price(Lo-Hi)</option>
+				<option value="priceDesc">Sort: Price(Hi-Lo)</option>
+				<option value="bedrooms">Sort: Bedrooms</option>
+				<option value="bathrooms">Sort: Bathrooms</option>
 			</select>
 		)
 	}
@@ -254,11 +258,91 @@ class PricePreference extends React.Component{
 					<select value={this.props.minPrice} name="minPrice" onChange={(e) => this.handleChange('min',e)}>
 						<option value="No Min">No Min</option>
 						<option value="10000">$10K</option>
+						<option value="20000">$20K</option>
+						<option value="30000">$30K</option>
+						<option value="50000">$50K</option>
+						<option value="100000">$100K</option>
+						<option value="130000">$130K</option>
+						<option value="150000">$150K</option>
+						<option value="200000">$200K</option>
+						<option value="300000">$300K</option>
+						<option value="350000">$350K</option>
+						<option value="400000">$400K</option>
+						<option value="450000">$450K</option>
+						<option value="500000">$500K</option>
+						<option value="550000">$550K</option>
+						<option value="600000">$600K</option>
+						<option value="650000">$650K</option>
+						<option value="700000">$700K</option>
+						<option value="750000">$750K</option>
+						<option value="800000">$850K</option>
+						<option value="900000">$900K</option>
+						<option value="950000">$950K</option>
+						<option value="1000000">$1m</option>
+						<option value="1100000">$1.1m</option>
+						<option value="1200000">$1.2m</option>
+						<option value="1250000">$1.25m</option>
+						<option value="1400000">$1.4m</option>
+						<option value="1500000">$1.5m</option>
+						<option value="1600000">$1.6m</option>
+						<option value="1700000">$1.7m</option>
+						<option value="1750000">$1.75m</option>
+						<option value="1800000">$1.8m</option>
+						<option value="1900000">$1.9m</option>
+						<option value="2000000">$2m</option>
+						<option value="2500000">$2.5m</option>
+						<option value="2750000">$2.75m</option>
+						<option value="3000000">$3m</option>
+						<option value="3500000">$3.5m</option>
+						<option value="4000000">$4m</option>
+						<option value="5000000">$5m</option>
+						<option value="10000000">$10m</option>
+						<option value="20000000">$20m</option>
 					</select>
 					<span>&ndash;</span>
 					<select value={this.props.maxPrice} name="maxPrice" onChange={(e) => this.handleChange('max',e)}>
 						<option value="No Max">No Max</option>
 						<option value="10000">$10K</option>
+						<option value="20000">$20K</option>
+						<option value="30000">$30K</option>
+						<option value="50000">$50K</option>
+						<option value="100000">$100K</option>
+						<option value="130000">$130K</option>
+						<option value="150000">$150K</option>
+						<option value="200000">$200K</option>
+						<option value="300000">$300K</option>
+						<option value="350000">$350K</option>
+						<option value="400000">$400K</option>
+						<option value="450000">$450K</option>
+						<option value="500000">$500K</option>
+						<option value="550000">$550K</option>
+						<option value="600000">$600K</option>
+						<option value="650000">$650K</option>
+						<option value="700000">$700K</option>
+						<option value="750000">$750K</option>
+						<option value="800000">$850K</option>
+						<option value="900000">$900K</option>
+						<option value="950000">$950K</option>
+						<option value="1000000">$1m</option>
+						<option value="1100000">$1.1m</option>
+						<option value="1200000">$1.2m</option>
+						<option value="1250000">$1.25m</option>
+						<option value="1400000">$1.4m</option>
+						<option value="1500000">$1.5m</option>
+						<option value="1600000">$1.6m</option>
+						<option value="1700000">$1.7m</option>
+						<option value="1750000">$1.75m</option>
+						<option value="1800000">$1.8m</option>
+						<option value="1900000">$1.9m</option>
+						<option value="2000000">$2m</option>
+						<option value="2500000">$2.5m</option>
+						<option value="2750000">$2.75m</option>
+						<option value="3000000">$3m</option>
+						<option value="3500000">$3.5m</option>
+						<option value="4000000">$4m</option>
+						<option value="5000000">$5m</option>
+						<option value="10000000">$10m</option>
+						<option value="20000000">$20m</option>
 					</select>
 				</div>
 			</div>
