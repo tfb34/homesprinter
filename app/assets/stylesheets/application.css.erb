@@ -439,11 +439,15 @@ body{
 }
 #welcome-content{
   position: relative;
-  margin-top:25vh;
+  margin:25vh auto 0 auto;
+  max-width: 800px;
 }
 #welcome-content h1{
   color:white;
   text-align: center;
+}
+#welcome-content #filterText{
+  box-shadow: none;
 }
 #welcome-content > form >input[name]{
   height:50px;
@@ -481,9 +485,16 @@ body{
   width:32%;
   padding:0.5em 0;
   text-align: center;
+  cursor:pointer;
+}
+#search-menu span:hover{
+  background-color: rgba(31,199,132,0.5);
 }
 #search-menu .current{
   background-color: var(--main-color);
+}
+#search-menu .current:hover{
+  background-color: var(--main-color)
 }
 #search-menu span:first-child{
   border-top-left-radius: 2px;
@@ -617,6 +628,16 @@ section{
 #mobile-menu button a {
   color:white;
   text-decoration: none;
+}
+#user-info{
+  text-align: left;
+  margin-top: 4em;
+}
+#user-info ul{
+  list-style-type:none;
+}
+#user-info li{
+  margin:1em 0;
 }
 #user-info a{
   color:white;
@@ -882,4 +903,18 @@ select:focus{
 }
 #saved-homes-menu .current{
   border-bottom: 2px solid green;
+}
+#searchResults{
+  background-color: var(--light-grey-color);
+}
+@media screen and (min-width:1000px){
+  .search-result-box{
+    width:33%;
+    display: inline-grid;
+  }
+  .home-grid-container{
+    max-width: 1200px;
+    padding:2em;
+    box-sizing: border-box;
+  }
 }

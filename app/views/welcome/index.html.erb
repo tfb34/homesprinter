@@ -3,9 +3,7 @@
 	<div id="welcome-content">
 		<h1>Make finding your home easy.</h1>
 		<div id="search-menu">
-			<span onclick="updateForm(this)" class="current">Buy</span>
-			<span onclick="updateForm(this)">Rent</span>
-			<span onclick="updateForm(this)">Sold</span>
+			<span onclick="updateForm(this)" class="current">Buy</span><span onclick="updateForm(this)">Rent</span><span onclick="updateForm(this)">Sold</span>
 		</div>
 		<%=form_tag(homes_path, method: "get") do%>
 
