@@ -449,7 +449,7 @@ body{
 #welcome-content #filterText{
   box-shadow: none;
 }
-#welcome-content > form >input[name]{
+#welcome-content .autocomplete input[name]{
   height:50px;
   width: 100%;
   box-sizing: border-box;
@@ -462,7 +462,7 @@ body{
   width:90%;
   margin: 0 auto;
 }
-#welcome-content > form > #search-icon{
+#welcome-content .autocomplete #search-icon{
   position: absolute;
   height:16px;
   width:16px;
@@ -713,7 +713,7 @@ a{
 .formOption .title{
   text-align: center;
   color:var(--title-color);
-  margin-top:0;
+  margin-top:1em;
 }
 #price-menu{
   display: none;
@@ -907,6 +907,166 @@ select:focus{
 #searchResults{
   background-color: var(--light-grey-color);
 }
+/*AUTOCOMPLETE*/
+.autocomplete {
+  /*the container must be positioned relative:*/
+  position: relative;
+}
+.autocomplete input {
+  border: 1px solid transparent;
+  background-color: #f1f1f1;
+  padding: 10px;
+  font-size: 16px;
+}
+.autocomplete-items {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  /*position the autocomplete items to be the same width as the container:*/
+  top: 100%;
+  left: 0;
+  right: 0;
+}
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #fff;
+  border-bottom: 1px solid #d4d4d4;
+}
+.autocomplete-items div:hover {
+  /*when hovering an item:*/
+  background-color: #e9e9e9;
+}
+.autocomplete-active {
+  /*when navigating through the items using the arrow keys:*/
+  background-color: DodgerBlue !important;
+  color: #ffffff;
+}
+#general{
+  text-align: left;
+  margin-top:3em;
+}
+#general input[type="submit"] {
+  border: none;
+  background-color: transparent;
+  color: white;
+  cursor:pointer;
+}
+#general a{
+  text-decoration: none;
+  color:white;
+}
+#general ul{
+  list-style-type: none;
+  padding-left: 2em;
+}
+#general li{
+  margin: 0.5em 0;
+}
+.navbar-links{
+  display: none;
+  width: 500px;
+  text-align: right;
+  margin-right: 0;
+  position: absolute;
+  right: 0;
+  padding-top: 20px;
+  font-weight: bold;
+}
+.navbar-links.left{
+  text-align: left;
+  left: unset;
+  left: 8em;
+  color:white;
+}
+.navbar-links.left span{
+  padding-right:1em;
+  font-size:14px;
+}
+.navbar-links span{
+  padding-right:2em;
+}
+.navbar-links .gravatar{
+  vertical-align: middle;
+  border-radius: 50px;
+  height:20px;
+}
+.navbar-links span a{
+  color:white;
+  text-decoration: none;
+  font-size: 14px;
+}
+#signin-btn{
+  background-color: white;
+  color: var(--menu-color);
+  padding: 0.4em 1em;
+  border-radius: 5px;
+  font-weight: bold;
+}
+#signin-btn:hover{
+  background-color: #f0eded;
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+  padding:0;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  font-size:14px;
+
+  z-index: 1;
+  text-align: left;
+}
+.dropdown-content ul{
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+.dropdown-content li{
+  padding:1em;
+}
+.dropdown-content li:hover{
+  background-color: #f0eded;
+}
+.dropdown-content a{
+  color:var(--dark-color);
+  text-decoration: none;
+}
+.navbar-links.left form{
+  display: inline-grid;
+}
+.navbar-links.left input{
+  background-color: transparent;
+  border:none;
+  font-weight: bold;
+  color:white;
+  cursor:pointer;
+}
+.dropdown-content input{
+  border: none;
+  padding: 1px 0;
+  background-color: transparent;
+  font-weight: bold;
+  cursor: pointer;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+@media screen and (min-width: 768px){
+  .signup-container{
+    width: 700px;
+    margin: 5em auto;
+  }
+}
 @media screen and (min-width:1000px){
   .search-result-box{
     width:33%;
@@ -916,5 +1076,11 @@ select:focus{
     max-width: 1200px;
     padding:2em;
     box-sizing: border-box;
+  }
+  #menu-btn, #mobile-menu{
+    display: none !important;
+  }
+  .navbar-links{
+    display: block;
   }
 }

@@ -12,9 +12,9 @@ class HomesController < ApplicationController
 	  	elsif (Home.where(zipcode: params[:filterText]).count >0)
 	  		#type = "zipcode"
 	  		@homes = Home.where(zipcode: params[:filterText])
-	  	elsif (Home.where(state: params[:filterText].titleize).count >0)
+	  	elsif (Home.where(state: params[:filterText].upcase).count >0 || params[:filterText].titleize == "New Jersey")
 	  		#type = "state"
-	  		@homes = Home.where(state: params[:filterText].titleize)
+	  		@homes = Home.where(state: "NJ")
 	  		#type = "No Result"
 	  	end
         if @homes

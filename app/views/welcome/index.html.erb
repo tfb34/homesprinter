@@ -1,17 +1,20 @@
+<!--In JS, update filterText AND Listing Type.-->
 <div id="bg"></div>
 <div class="myContainer">
 	<div id="welcome-content">
-		<h1>Make finding your home easy.</h1>
+		<h1>Make finding your home easy in <br>Jersey City.</h1>
 		<div id="search-menu">
 			<span onclick="updateForm(this)" class="current">Buy</span><span onclick="updateForm(this)">Rent</span><span onclick="updateForm(this)">Sold</span>
 		</div>
-		<%=form_tag(homes_path, method: "get") do%>
-
-			<%=text_field_tag 'filterText',nil,placeholder:'Address, Neighborhood, City, ZIP...', required: true%>
+		<%=form_tag(homes_path, method: "get", autocomplete: "off") do%>
+			<div class="autocomplete">
+			 <%=text_field_tag 'filterText',nil,placeholder:'Address, Neighborhood, ZIP', required: true, id:"myInput"%>
 			<!-- <input type="text" name="" placeholder="Address, Neighborhood, City, ZIP"> -->
 			<%=hidden_field_tag 'listingType', 'buy'%>
 			<%=image_submit_tag("search-icon.svg", id:'search-icon')%>
+            </div>
 		<%end%>
 	</div>
 </div>
 
+<script type="text/javascript">autocomplete(document.getElementById("myInput"),suggestions);</script>

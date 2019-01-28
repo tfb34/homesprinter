@@ -1,6 +1,46 @@
 <div class="navbar">
 	<a href=<%=root_url%> ><%= image_tag 'logo.svg', :class => "logo"%></a>
+	<div class="navbar-links left" >
+		<span>
+			<%=form_tag(homes_path, method: "get") do%>
+                
+                <%=hidden_field_tag 'listingType', 'buy'%>
+                <%=hidden_field_tag 'filterText', 'Jersey City'%>
+                <%=submit_tag("Buy")%>
+            <%end%>
+		</span>
+		<span>
+			<%=form_tag(homes_path, method: "get") do%>
+                <%=hidden_field_tag 'listingType', 'rent'%>
+                <%=hidden_field_tag 'filterText', 'Jersey City'%>
+                <%=submit_tag("Rent")%>
+            <%end%>
+		</span>
+		<span>About</span>
+	</div>
 
+	<div class="navbar-links">
+		<%if current_user%>
+			<span><%=link_to "Saved Homes", likes_path%></span>
+			<div class="dropdown">
+			<span><%=gravatar_for current_user,size: 30%>
+				<%=link_to current_user.email, edit_user_path(current_user), id:""%>
+				  </span>
+				  <div class="dropdown-content">
+				  	<ul>
+				  	<li><%= link_to "Edit Profile", edit_user_path(current_user)%></li>
+				  	<li><%=button_to 'Logout', logout_url, method: :delete%></li>
+				  	</ul>
+				  </div>
+				</div>
+               
+		<%else%>
+			<span><%=link_to "Saved Homes", signup_path%></span>
+			<span>
+				<%=link_to "Sign In", login_path, id:"signin-btn"%>
+            </span>	
+		<%end%>
+	</div>
 </div>
 <div id="menu-btn" onclick="toggleMenu()">
 		<span class="bar1"></span>
