@@ -442,6 +442,9 @@ body{
   margin:25vh auto 0 auto;
   max-width: 800px;
 }
+#welcome-content br{
+  display: none;
+}
 #welcome-content h1{
   color:white;
   text-align: center;
@@ -577,6 +580,7 @@ section{
   background-color:red;
   color:white;
   font-weight: bold;
+  cursor: pointer;
 }
 #mobile-menu{
   position: fixed;
@@ -592,9 +596,6 @@ section{
   opacity: 0;
   /*border-bottom-left-radius: 100%;*/
   right: 0;
-}
-#mobile-menu, #mobile-menu .button_to input{
-  max-width:300px;
 }
 .show{
   /*display: block !important;*/
@@ -730,7 +731,7 @@ a{
 }
 .formButton{
   color: var(--border-color);
-    border: 1px solid var(--border-color);
+    border: 1px solid lightgrey;
     padding: 0.8em 1em;
     border-radius: 4px;
     display: inline-block;
@@ -863,7 +864,10 @@ select:focus{
   margin-top:1em;
   margin-bottom:1.5em;
 }
-#listingtype-menu, #bedroom-menu, #price-menu{
+/*#listingtype-menu, #bedroom-menu, #price-menu{
+  display: block;
+}*/
+.formOption .dropdown{
   display: block;
 }
 .formButton{
@@ -963,7 +967,7 @@ select:focus{
   padding-left: 2em;
 }
 #general li{
-  margin: 0.5em 0;
+  margin: 1em 0;
 }
 .navbar-links{
   display: none;
@@ -1060,14 +1064,75 @@ select:focus{
 .dropdown:hover .dropdown-content {
   display: block;
 }
-
+#welcome-content h1{
+    text-shadow: 5px 5px 10px black;
+  }
 @media screen and (min-width: 768px){
   .signup-container{
     width: 700px;
     margin: 5em auto;
   }
+  #welcome-content br{
+    display: block;
+  }
+  .formButton{
+    display: block;
+  }
+  .formOption .dropdown{
+    display: none;
+    position: absolute;
+    top: 3em;
+    background-color: white;
+    box-shadow: 0px 5px 13px lightgrey;
+    width: 200px;
+    padding: 1em;
+    border-radius: 8px;
+  }
+  #filters-container{
+    display: block;
+    width:60%;
+    position: absolute;
+    top:0;
+    right:0;
+  }
+  #filtersButton{
+    display: none;
+  }
+  .formOption{
+    display: inline-grid;
+    margin: 0 0.5em;
+    font-size: 14px;
+  }
+  #bedroom-menu{
+    width: 225px;
+  }
+  #price-menu{
+    width:300px;
+  }
+  .dropdown .title{
+    display: none;
+  }
+  #filterTextBox{
+    width:40%;
+    padding:0.6em;
+  }
+  #HomeFilterForm{
+    position: relative;
+    max-width:1200px;
+  }
+  #sortOption{
+    display: block;
+    width:30%;
+  }
+  #price-menu select{
+    background-color: white;
+    border:1px solid lightgrey;
+  }
 }
 @media screen and (min-width:1000px){
+  /*#mobile-menu, #mobile-menu .button_to input{
+    max-width:300px;
+  }*/
   .search-result-box{
     width:33%;
     display: inline-grid;

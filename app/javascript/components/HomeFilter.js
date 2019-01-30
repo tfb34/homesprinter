@@ -106,9 +106,9 @@ class FilterableHomeTable extends React.Component{
 			type: "POST",
 			url:"/searchResults.js?"+urlString.join('&'),
 			data: form,
-			success: function(response){
+			/*success: function(response){
 				console.log(response);
-			}
+			}*/
 		})
 	}
 
@@ -237,7 +237,14 @@ class SortPreference extends React.Component{
 class PricePreference extends React.Component{
 	constructor(props){
 		super(props);
+		this.state = {
+			currValue: "Any Price",
+			minValue: 0,
+			maxValue: 0
+		};
 
+		this._getMaxValueText = this._getMaxValueText.bind(this);
+		this._getMinValueText = this._getMinValueText.bind(this);
 	}
 
 	toggleDropdown(id){
@@ -246,13 +253,70 @@ class PricePreference extends React.Component{
 	}
 
 	handleChange(type,event){
+		let x;
+		let y;
+		if(type === "min"){
+			x = this._getMaxValueText(event.target.value);
+			type === "No Min" ? y=0 : y=event.target.value ;
+		}else{
+			x = this._getMinValueText(event.target.value);
+			type === "No Max" ? y=0 : y=event.target.value ;
+		}
+
+		console.log(x);
+		let nType = `${type}Value`;
+
+		console.log(y);
+		
+		this.setState(state => ({
+			[nType]: y,
+			currValue: x
+		}));
+
 		this.props.onPriceChange(type,event.target.value);
+	}
+
+	_getMaxValueText(value){
+		let cv = numberWithCommas(value);
+		let cmv = numberWithCommas(this.state.maxValue);
+		let x;
+		
+		if(value > 0){
+			if(this.state.maxValue === 0){
+				x =  `$${cv}+`;
+			}else{
+				x = `$${cv} - $${cmv}`;
+			}
+		}else{
+			if(this.state.maxValue > 0){
+				x = `$0 - $${cmv}`;
+			}else{
+				x = "Any Price";
+			}
+		}
+		return x;
+	}
+
+	_getMinValueText(value){
+		let cv = numberWithCommas(value);
+		let cmv = numberWithCommas(this.state.minValue);
+		let x;
+		if(value > 0){
+			x = `$${cmv} - $${cv}`;
+		}else{
+			if(this.state.minValue > 0){
+				x = `$${cmv}+`;
+			}else{
+				x = "Any Price";
+			}
+		}
+		return x;
 	}
 
 	render(){
 		return(
 			<div id="priceOption" className="formOption">
-				<a onClick={(e) => this.toggleDropdown('price-menu', e)} className="formButton">Any Price</a>
+				<a onClick={(e) => this.toggleDropdown('price-menu', e)} className="formButton">{this.state.currValue}</a>
 				<div id="price-menu" className="dropdown">
 					<h4 className="title">PRICE</h4>
 					<select value={this.props.minPrice} name="minPrice" onChange={(e) => this.handleChange('min',e)}>
@@ -350,6 +414,11 @@ class PricePreference extends React.Component{
 	}
 }
 
+
+function numberWithCommas(x) {
+	    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
 class NumBedroomPreference extends React.Component{
 	constructor(props){
 		super(props); // this.props.minBeds
@@ -363,7 +432,8 @@ class NumBedroomPreference extends React.Component{
 			is1: beds === 1 ? true:false,
 			is2: beds === 2 ? true:false,
 			is3: beds === 3 ? true:false,
-			is4: beds === 4 ? true:false
+			is4: beds === 4 ? true:false,
+			currValue:  "All Beds"
 		};
 	}
 
@@ -371,9 +441,17 @@ class NumBedroomPreference extends React.Component{
 
 		let cType = `is${this.props.minBeds}`;
 		let nType = `is${newNumBeds}`;
+		var x;
+		if(newNumBeds > 0){
+			x = `${newNumBeds}+ Beds`;
+		}else{
+			x = "All Beds";
+		}
+		
 		this.setState(state => ({
 			[cType]: false,
-			[nType]: true
+			[nType]: true,
+			currValue: x
 		}));
 		this.props.onBedroomChange(newNumBeds);
 	}
@@ -386,7 +464,7 @@ class NumBedroomPreference extends React.Component{
 	render(){
 		return(
 		<div id="bedroomOption" className="formOption">
-			<a onClick={(e) => this.toggleDropdown('bedroom-menu', e)} className="formButton">BEDROOMS</a>
+			<a onClick={(e) => this.toggleDropdown('bedroom-menu')} className="formButton">{this.state.currValue}</a>
 			<div id="bedroom-menu" className="dropdown">
 				<h4 className="title">BEDROOMS</h4>
 					<div>
