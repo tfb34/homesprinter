@@ -17,11 +17,13 @@ class HomesController < ApplicationController
 	  		@homes = Home.where(state: "NJ")
 	  		#type = "No Result"
 	  	end
+
         if @homes
             @homes = @homes.where(listing_type: getListingType())
         end
         
   		@filterText = params[:filterText]
+  		@listingType = params[:listingType]
 	end
 
 	def show

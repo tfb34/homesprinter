@@ -2,7 +2,7 @@
 
 <div>
 	<!--menu-->
-	<%= react_component('HomeFilter') %>
+	<%= react_component('HomeFilter', text: @filterText, type: @listingType) %>
 	<!--homes-->
 	<!--render partial: 'home_grid', locals: {items: @items}%>-->
 	<%=form_tag({:controller=> "search_results", :action => "create"}, :remote=>true, :id => "filterForm") do%>
@@ -19,18 +19,7 @@
 	document.onreadystatechange = function(){
 		if(document.readyState === "complete"){
 			var x = <%=@filterText.to_json.html_safe%>
-			if(x){
-				var input = document.getElementById('filterTextBox');
-
-				var nativeInputValueSetter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, "value").set;
-
-				nativeInputValueSetter.call(input, x);
-
-				var ev2 = new Event('input', { bubbles: true});
-				input.dispatchEvent(ev2);
-				
-			}
-
+			document.getElementById("filterTextBox").placeholder = x;
 		}
 	}
 </script>

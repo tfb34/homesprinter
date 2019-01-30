@@ -64,7 +64,7 @@ class FilterableHomeTable extends React.Component{
 		this.handleFilterButton = this.handleFilterButton.bind(this);
 
 		this.state = {
-			filterText: 'Neighborhood',
+			filterText: this.props.text || 'Neighborhood',
 			isAnyPrice: true,
 			minPrice: 'No Min',
 			maxPrice: 'No Max',
@@ -72,7 +72,7 @@ class FilterableHomeTable extends React.Component{
 			minBeds: 0, // stays
 			isAllHomeTypes: true,
 			homeType: [],
-			listingType: 'buy', // stays
+			listingType: this.props.type || 'buy', // stays
 			sortType: 'Featured',
 			isFiltersOn: false
 		};
@@ -485,10 +485,16 @@ class HomeFilter extends React.Component {
   render () {
     return (
       <React.Fragment>
-        <FilterableHomeTable />
+        <FilterableHomeTable 
+        	text = {this.props.text}
+        	type = {this.props.type}
+        />
       </React.Fragment>
     );
   }
 }
 
 export default HomeFilter
+
+
+
