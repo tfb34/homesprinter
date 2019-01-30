@@ -3,6 +3,7 @@ class HomesController < ApplicationController
 
 
 	def index
+	
 		if(Home.where(neighborhood: params[:filterText].titleize).count > 0)
 	  		#@type = "neighborhood"
 	  		@homes = Home.where(neighborhood: params[:filterText].titleize)

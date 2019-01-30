@@ -32,7 +32,8 @@ function updateForm(x){
 	prev.classList.toggle("current");
 	x.classList.toggle("current");
 	/*change form*/
-	document.getElementById("listingType").value = x.innerHTML;
+	/*document.getElementById("listingType").setAttribute('value', x.innerHTML);*/
+  document.getElementById("listingTypeTwo").setAttribute('value', x.innerHTML.toLowerCase())
 }
 
 function getSavedHomes(x){
